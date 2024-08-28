@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import WalletProvider from "@/providers/WalletProvider";
 import "@rainbow-me/rainbowkit/styles.css";
-import NftMintButton from "@/components/Nft/NftMintButton";
 
 const karla = Karla({ subsets: ["latin"], variable: "--font-karla" });
 const bowlbyOne = Bowlby_One({ weight: "400", subsets: ["latin"], variable: "--font-bowlby-one" });
@@ -15,6 +14,7 @@ const shantellSans = Shantell_Sans({ subsets: ["latin"], variable: "--font-shant
 export const metadata: Metadata = {
   title: "Nouns Town Ticketing",
   description: "NFT Ticketing page for Nouns Town.",
+  metadataBase: new URL("https://tickets.nounstown.wtf"),
 };
 
 export default function RootLayout({
