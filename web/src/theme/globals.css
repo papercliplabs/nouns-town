@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  ::before,
+  ::after {
+    @apply border-border-primary;
+  }
+
   body {
-    @apply bg-background-primary text-content-primary antialiased;
+    @apply border-border-primary text-content-primary bg-background-primary body-md antialiased;
     text-rendering: optimizeLegibility;
   }
 
@@ -26,17 +32,5 @@
 
   h5 {
     @apply heading-5;
-  }
-
-  ol {
-    list-style-position: outside;
-    list-style-type: decimal;
-    display: inline-block;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
   }
 }

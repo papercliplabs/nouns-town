@@ -2,8 +2,12 @@ import type { Config } from "tailwindcss";
 const plugin = require("tailwindcss/plugin");
 
 const config: Config = {
-  content: ["./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: ["./src/**/*.{ts,tsx}"],
   theme: {
+    screens: {
+      md: "900px",
+      lg: "1200px",
+    },
     extend: {
       boxShadow: {
         card: "0px 4px 4px 0px rgba(0, 0, 0, 0.2)",
@@ -25,15 +29,34 @@ const config: Config = {
         border: {
           primary: "#222222",
         },
+        semantic: {
+          negative: "#FE500C",
+        },
         "street-sign": "#06885B",
       },
       fontFamily: {
         karla: ["var(--font-karla)"],
         bowlby: ["var(--font-bowlby-one)"],
+        shantell: ["var(--font-shantell-sans)"],
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
   plugins: [
+    require("tailwindcss-animate"),
     plugin(function ({ addUtilities }: { addUtilities: any }) {
       addUtilities({
         ".heading-1": {
@@ -49,7 +72,7 @@ const config: Config = {
           "@apply font-karla text-[25px] md:text-[41px]": {},
         },
         ".heading-5": {
-          "@apply font-bowlby text-[25px] font-bold": {},
+          "@apply font-karla text-[25px] md:text-[32px] font-bold": {},
         },
         ".body-lg": {
           "@apply font-karla text-[21px] md:text-[25px]": {},
