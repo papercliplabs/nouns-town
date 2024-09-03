@@ -1,66 +1,54 @@
-## Foundry
+## Nouns Town Contracts 
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Contracts specific to Noun Town Ticketing built using [Foundry](https://book.getfoundry.sh). 
 
-Foundry consists of:
+## Deployments
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+### Mainnet
 
-## Documentation
+| Name                   | Address |
+| ---------------------- | ------- |
+| Nouns Town 2024 Ticket | TODO    |
 
-https://book.getfoundry.sh/
+### Sepolia
 
-## Usage
+| Name                   | Address |
+| ---------------------- | ------- |
+| Nouns Town 2024 Ticket | TODO    |
 
-### Build
+## Development
 
-```shell
-$ forge build
+Build
+```bash
+forge build
 ```
 
-### Test
-
-```shell
-$ forge test
+Test
+```bash
+forge test
 ```
 
-### Format
-
-```shell
-$ forge fmt
+Gas Report
+```bash
+forge test --gas-report
 ```
 
-### Gas Snapshots
-
-```shell
-$ forge snapshot
+Test coverage summary
+```bash
+forge coverage --report summary
 ```
 
-### Anvil
-
-```shell
-$ anvil
+Test coverage lcov
+```bash
+forge coverage --report lcov
 ```
 
-### Deploy
+Deploy
+```bash
+# TODO
+# To load the variables in the .env file
+source .env
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+# To deploy and verify our contract
+forge script --chain 84532 script/EventTicket.s.sol:EventTicketDeploy --rpc-url $BASE_SEPOLIA_RPC_URL --broadcast --verify -vvvv
 ```
