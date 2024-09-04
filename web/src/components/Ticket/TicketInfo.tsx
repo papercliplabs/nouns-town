@@ -1,13 +1,10 @@
-import { CONFIG } from "@/config";
+import { NftInfo } from "@/config";
 import { formatAddress } from "@/utils/format";
-import { TicketYear } from "@/utils/types";
 import { publicClient } from "@/utils/viemClients";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function NftInfo({ year }: { year: TicketYear }) {
-  const nftInfo = CONFIG.nftTicketInfo[year];
-
+export default function TicketInfo({ nftInfo }: { nftInfo: NftInfo }) {
   return (
     <div className="flex flex-col gap-2 rounded-[24px] border-2 border-[#25BBFF] p-6 font-bold">
       <div className="flex justify-between">
@@ -15,7 +12,7 @@ export default function NftInfo({ year }: { year: TicketYear }) {
         <span>1</span>
       </div>
       <div className="flex justify-between">
-        <span>Public sale ends</span>
+        <span>Ticket claim ends</span>
         <span>
           {new Intl.DateTimeFormat("en-US", {
             month: "short",

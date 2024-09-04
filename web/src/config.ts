@@ -2,16 +2,16 @@ import { Address } from "viem";
 import { base, baseSepolia, Chain } from "viem/chains";
 import { TicketYear } from "./utils/types";
 
+export interface NftInfo {
+  address: Address;
+  publicSaleEndDate: Date;
+  imgSrc: string;
+}
+
 interface Config {
   chain: Chain;
   rpcUrl: { primary: string; fallback: string };
-  nftTicketInfo: Record<
-    TicketYear,
-    {
-      address: Address;
-      publicSaleEndDate: Date;
-    }
-  >;
+  nftTicketInfo: Record<TicketYear, NftInfo>;
 }
 
 const configs: Record<number, Config> = {
@@ -25,10 +25,12 @@ const configs: Record<number, Config> = {
       2024: {
         address: "0x", // TODO
         publicSaleEndDate: new Date("2024-10-10"),
+        imgSrc: "/ticket-2024.gif",
       },
       2025: {
         address: "0x", // TODO
         publicSaleEndDate: new Date("2025-10-10"),
+        imgSrc: "",
       },
     },
   },
@@ -40,12 +42,14 @@ const configs: Record<number, Config> = {
     },
     nftTicketInfo: {
       2024: {
-        address: "0x", // TODO
+        address: "0x64c1aF051aDB77C4091C073eFdDc86d140131fde",
         publicSaleEndDate: new Date("2024-10-10"),
+        imgSrc: "/ticket-2024.gif",
       },
       2025: {
         address: "0x", // TODO
         publicSaleEndDate: new Date("2025-10-10"),
+        imgSrc: "",
       },
     },
   },
