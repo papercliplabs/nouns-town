@@ -1,0 +1,24 @@
+{
+    "name": "Nouns Town Pass",
+    "description": "This ticket grants you a three-day pass to the inaugural Nouns Town events in Los Angeles, California.",
+    "external_url": "https://nounstown.wtf/",
+    "image": "ipfs://Qmb9kDBGpR5dApzuN9BxTmeMyawmYoUq8FZ96Fu2J9cWf2",
+    "attributes": [
+        {
+            "trait_type": "Location",
+            "value": "Los Angeles, California"
+        },
+        {
+            "trait_type": "Year",
+            "value": "2024"
+        },
+        {
+            "trait_type": "Status",
+            "value": "Claimed"
+        },
+        {
+            "trait_type": "Artist",
+            "value": "SloppyStudios"
+        }
+    ]
+}

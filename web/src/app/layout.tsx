@@ -30,7 +30,7 @@ export default function RootLayout({
         <WalletProvider>
           <Header />
           <div className="flex min-h-dvh w-full flex-col items-center justify-between pt-[80px]">
-            <main className="flex-grow py-8">
+            <main className="flex w-full flex-grow justify-center py-8">
               <Image
                 src="/cloud.png"
                 height={244}
