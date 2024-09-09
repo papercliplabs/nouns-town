@@ -162,9 +162,9 @@ contract EventTicket is ERC721, ERC721Royalty, Ownable, ReentrancyGuard {
         if (msg.value != SALE_PRICE) revert IncorrectValueSent(SALE_PRICE, msg.value);
 
         uint256 tokenId = currentSupply;
-        _safeMint(msg.sender, tokenId);
-
         ++currentSupply;
+
+        _safeMint(msg.sender, tokenId);
 
         (bool sent,) = FUND_RECIPIENT.call{value: msg.value}("");
         if (!sent) revert FailedToSendEtherToFundRecipient();
