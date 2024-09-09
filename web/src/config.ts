@@ -23,15 +23,15 @@ const configs: Record<number, Config> = {
     },
     nftTicketInfo: {
       2024: {
-        address: "0x", // TODO
+        address: "0x04Db84527ecC5414B7FaDaeBE03fcADD978Ef5dF",
         publicSaleEndDate: new Date("2024-10-10"),
         imgSrc: "/ticket-2024.gif",
       },
-      2025: {
-        address: "0x", // TODO
-        publicSaleEndDate: new Date("2025-10-10"),
-        imgSrc: "",
-      },
+      // 2025: {
+      //   address: "0x", // TODO
+      //   publicSaleEndDate: new Date("2025-10-10"),
+      //   imgSrc: "",
+      // },
     },
   },
   [baseSepolia.id]: {
@@ -46,11 +46,11 @@ const configs: Record<number, Config> = {
         publicSaleEndDate: new Date("2024-10-10"),
         imgSrc: "/ticket-2024.gif",
       },
-      2025: {
-        address: "0x", // TODO
-        publicSaleEndDate: new Date("2025-10-10"),
-        imgSrc: "",
-      },
+      // 2025: {
+      //   address: "0x", // TODO
+      //   publicSaleEndDate: new Date("2025-10-10"),
+      //   imgSrc: "",
+      // },
     },
   },
 };
