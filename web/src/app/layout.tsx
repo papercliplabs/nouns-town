@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import WalletProvider from "@/providers/WalletProvider";
 import "@rainbow-me/rainbowkit/styles.css";
+import { Analytics } from "@vercel/analytics/react";
 
 const karla = Karla({ subsets: ["latin"], variable: "--font-karla" });
 const bowlbyOne = Bowlby_One({ weight: "400", subsets: ["latin"], variable: "--font-bowlby-one" });
@@ -52,6 +53,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </WalletProvider>
+        <Analytics />
       </body>
     </html>
   );

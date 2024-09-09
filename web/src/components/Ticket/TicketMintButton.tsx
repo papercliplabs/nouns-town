@@ -12,6 +12,7 @@ import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { TicketYear } from "@/utils/types";
 import Link from "next/link";
+import { track } from "@vercel/analytics/react";
 
 interface TicketMintButtonProps {
   salePrice: bigint;
@@ -63,6 +64,18 @@ export default function TicketMintButton({
     }
   }, [isConfirmed, router, hash, year]);
 
+  useEffect(() => {
+    if (hash) {
+      track("mint-txn", { hash });
+    }
+  }, [hash]);
+
+  useEffect(() => {
+    if (receipt && receipt.status == "reverted") {
+      track("mint-txn-reverted", { hash: receipt.transactionHash });
+    }
+  }, [receipt]);
+
   const externalDisabled = useMemo(() => {
     return !saleActive || soldOut || userAtMaxPerWallet;
   }, [saleActive, soldOut, userAtMaxPerWallet]);
@@ -107,7 +120,7 @@ export default function TicketMintButton({
         <span className="body-md bg-background-primary rounded-full p-2 text-center font-bold text-[#A80000]">
           {userAtMaxPerWallet
             ? "This wallet already holds 1 Nouns Town Pass. You can only hold one pass per wallet."
-            : parseWriteContractError(writeContractError, waitForTransactionReceiptError)}
+            : parseWriteContractError(writeContractError, waitForTransactionReceiptError, hash)}
         </span>
       )}
       {(soldOut || !saleActive) && (

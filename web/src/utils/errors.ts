@@ -1,5 +1,6 @@
-import { BaseError, ContractFunctionRevertedError, InsufficientFundsError, UserRejectedRequestError } from "viem";
+import { BaseError, ContractFunctionRevertedError, Hex, InsufficientFundsError, UserRejectedRequestError } from "viem";
 import { WaitForTransactionReceiptErrorType, WriteContractErrorType } from "wagmi/actions";
+import { track } from "@vercel/analytics/react";
 
 const eventTicketErrorMappings: Record<string, string> = {
   SaleNotActive: "Oops, the sale is not currently active, check back later.",
@@ -9,7 +10,8 @@ const eventTicketErrorMappings: Record<string, string> = {
 
 export function parseWriteContractError(
   writeContractError: WriteContractErrorType | null,
-  waitForTransactionReceiptError: WaitForTransactionReceiptErrorType | null
+  waitForTransactionReceiptError: WaitForTransactionReceiptErrorType | null,
+  hash?: Hex
 ) {
   let fallback = "Unknown error";
 
@@ -42,6 +44,6 @@ export function parseWriteContractError(
     fallback = "Unknown error waiting for transaction";
   }
 
-  // TODO: log this for investigation
+  track("txn-error", { hash: hash ?? "Missing", error: fallback });
   return fallback + " - we're looking into this, check back shortly.";
 }
