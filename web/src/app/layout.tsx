@@ -14,7 +14,7 @@ const shantellSans = Shantell_Sans({ subsets: ["latin"], variable: "--font-shant
 export const metadata: Metadata = {
   title: "Nouns Town Ticketing",
   description: "NFT Ticketing page for Nouns Town.",
-  metadataBase: new URL("https://tickets.nounstown.wtf"),
+  metadataBase: new URL("https://www.tickets.nounstown.wtf"),
 };
 
 export default function RootLayout({

@@ -8,14 +8,14 @@ const WARPCAST_SOCIAL_SHARE_URL =
   "https://warpcast.com/~/compose?" +
   new URLSearchParams({
     text: "I got my ticket to Nouns Town LA, see you there!",
-    "embeds[]": "https://tickets.nounstown.wtf",
+    "embeds[]": "https://www.tickets.nounstown.wtf",
   }).toString();
 
 const X_SOCIAL_SHARE_URL =
   "https://twitter.com/intent/tweet?" +
   new URLSearchParams({
     text: "I got my ticket to Nouns Town LA, see you there!",
-    url: "https://tickets.nounstown.wtf",
+    url: "https://www.tickets.nounstown.wtf",
   }).toString();
 
 export default function AcquiredPage({ params }: { params: { year: string; txHash: string } }) {

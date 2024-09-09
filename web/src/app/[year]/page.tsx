@@ -17,11 +17,13 @@ export default function TicketPage({ params }: { params: { year: string } }) {
           <span className="font-shantell text-[24px] font-bold">Los Angeles, 2024</span>
           <h3>NOUNS TOWN PASS</h3>
         </div>
-        <span className="font-bold">
-          This ticket grants you a three-day pass to Nouns Town in Los Angeles, California. While the tickets are free,
-          a refundable deposit is required and will be returned upon scanning your ticket at the event. Please note,
-          this pass does not include access to the Nouns Fest Animation Festival.
-        </span>
+        <div className="flex flex-col gap-2 font-bold">
+          <p>
+            This ticket grants you a three-day pass to Nouns Town in Los Angeles, California. While the tickets are
+            free, a refundable deposit is required and will be returned upon scanning your ticket at the event.
+          </p>
+          <p>Please note, this pass does not include access to the Nouns Fest Animation Festival.</p>
+        </div>
         <div className="flex gap-4 rounded-2xl bg-[#25BBFF] pl-4 pt-4">
           <Image src="/4156.png" width={140} height={98} alt="" className="object-contain object-bottom" />
           <div className="flex flex-col gap-2 pb-4 pr-4 font-bold">
