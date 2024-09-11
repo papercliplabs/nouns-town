@@ -18,6 +18,7 @@ export default function TicketInfo({ nftInfo }: { nftInfo: NftInfo }) {
             month: "short",
             day: "numeric",
             year: "numeric",
+            timeZone: "UTC",
           }).format(nftInfo.publicSaleEndDate)}
         </span>
       </div>

@@ -12,7 +12,8 @@ abstract contract TestHelpers is Test {
     address constant REDEEMER = address(2);
     address constant USER_A = address(3);
     address constant USER_B = address(4);
-    address payable constant FUND_RECIPIENT = payable(address(5));
+    address constant USER_C = address(5);
+    address payable constant FUND_RECIPIENT = payable(address(6));
     uint96 constant ROYALTY_BIPS = 1000; // 10%
 
     uint256 constant INITIAL_DEAL_AMOUNT = 10000 ether;

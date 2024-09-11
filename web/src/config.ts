@@ -24,7 +24,7 @@ const configs: Record<number, Config> = {
     nftTicketInfo: {
       2024: {
         address: "0x04Db84527ecC5414B7FaDaeBE03fcADD978Ef5dF",
-        publicSaleEndDate: new Date("2024-10-10"),
+        publicSaleEndDate: new Date("2024-09-29"),
         imgSrc: "/ticket-2024.gif",
       },
       // 2025: {
@@ -43,7 +43,7 @@ const configs: Record<number, Config> = {
     nftTicketInfo: {
       2024: {
         address: "0x64c1aF051aDB77C4091C073eFdDc86d140131fde",
-        publicSaleEndDate: new Date("2024-10-10"),
+        publicSaleEndDate: new Date("2024-09-29"),
         imgSrc: "/ticket-2024.gif",
       },
       // 2025: {

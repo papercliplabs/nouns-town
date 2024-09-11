@@ -25,9 +25,9 @@ contract RedeemTest is Test, TestHelpers {
     // Helpers
     ////
 
-    function _mint(address user) private {
+    function _mint(address user) private returns (uint256) {
         vm.prank(user);
-        ticket.mint{value: SALE_PRICE}();
+        return ticket.mint{value: SALE_PRICE}();
     }
 
     function _redeemAndRunChecks(uint256 tokenId, address owner) private {
@@ -67,7 +67,26 @@ contract RedeemTest is Test, TestHelpers {
         _redeemAndRunChecks(1, USER_B);
     }
 
-    // TODO: approval and transfer tests
+    function test_selfTransfer() public {
+        uint256 tokenId = _mint(USER_A);
+        assertEq(ticket.ownerOf(tokenId), USER_A);
+
+        vm.prank(USER_A);
+        ticket.transferFrom(USER_A, USER_B, tokenId);
+        assertEq(ticket.ownerOf(tokenId), USER_B);
+    }
+
+    function test_approveAndTransfer() public {
+        uint256 tokenId = _mint(USER_A);
+        assertEq(ticket.ownerOf(tokenId), USER_A);
+
+        vm.prank(USER_A);
+        ticket.approve(USER_B, tokenId);
+
+        vm.prank(USER_B);
+        ticket.transferFrom(USER_A, USER_C, tokenId);
+        assertEq(ticket.ownerOf(tokenId), USER_C);
+    }
 
     ////
     // Reverting Tests
@@ -114,5 +133,26 @@ contract RedeemTest is Test, TestHelpers {
         vm.prank(USER_B);
         _expectRevertCannotTransferRedeemedToken();
         ticket.transferFrom(USER_B, USER_A, 0);
+    }
+
+    function test_reverts_when_transferedViaApprovalAfterRedeemed() public {
+        uint256 tokenId = _mint(USER_A);
+
+        // Transfers work
+        vm.prank(USER_A);
+        ticket.transferFrom(USER_A, USER_B, 0);
+
+        // Redeem
+        vm.prank(REDEEMER);
+        _redeemAndRunChecks(0, USER_B);
+
+        // USER_B approves USER_A
+        vm.prank(USER_B);
+        ticket.approve(USER_A, tokenId);
+
+        // Expect reverts when userA tried to move since redeemed
+        vm.prank(USER_A);
+        _expectRevertCannotTransferRedeemedToken();
+        ticket.transferFrom(USER_B, USER_C, tokenId);
     }
 }
