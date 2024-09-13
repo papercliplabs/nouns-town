@@ -97,6 +97,7 @@ export default function TicketMintButton({
               functionName: "mint",
               value: salePrice,
               chainId: CONFIG.chain.id,
+              gas: BigInt(250000), // Fallback, since estimation error occurs sometimes...
             });
           }
         }}
