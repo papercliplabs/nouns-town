@@ -1,0 +1,29 @@
+{
+  "name": "programmable-direct-cast",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "codegen": "supabase gen types typescript --project-id maigwjhtcdimlttkflad > src/supabase/generated.ts",
+    "dev:direct-cast": "ts-node-dev src/app/direct-cast/main",
+    "dev:wallet-pass": "ts-node-dev src/app/wallet-pass/main",
+    "build": "tsc -p .",
+    "start": "node dist/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "@types/uuid": "^10.0.0",
+    "prettier": "^3.3.2",
+    "supabase": "^1.178.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.44.2",
+    "dotenv": "^16.4.5",
+    "uuid": "^10.0.0"
+  }
+}
