@@ -19,8 +19,8 @@ export default function TicketPage({ params }: { params: { year: string } }) {
         </div>
         <div className="flex flex-col gap-2 font-bold">
           <p>
-            This ticket grants you a three-day pass to Nouns Town in Los Angeles, California. While the tickets are
-            free, a refundable deposit is required and will be returned upon scanning your ticket at the event.
+            This ticket grants you a four-day pass to Nouns Town in Los Angeles, California. While the tickets are free,
+            a refundable deposit is required and will be returned upon scanning your ticket at the event.
           </p>
           <p>Please note, this pass does not include access to the Nouns Fest Animation Festival.</p>
         </div>
