@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "codegen": "supabase gen types typescript --project-id maigwjhtcdimlttkflad > src/supabase/generated.ts",
+    "codegen": "supabase gen types typescript --project-id djrnbbqbewqvchirmres > src/supabase/generated.ts",
     "dev:direct-cast": "ts-node-dev src/app/direct-cast/main",
     "dev:wallet-pass": "ts-node-dev src/app/wallet-pass/main",
     "build": "tsc -p .",
@@ -23,7 +23,9 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.44.2",
+    "csv-parser": "^3.0.0",
     "dotenv": "^16.4.5",
-    "uuid": "^10.0.0"
+    "uuid": "^10.0.0",
+    "viem": "^2.21.15"
   }
 }

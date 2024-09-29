@@ -4,17 +4,11 @@ Contracts specific to Noun Town Ticketing built using [Foundry](https://book.get
 
 ## Deployments
 
-### Mainnet
+| Name                     | Base                                       | Base Sepolia                               |
+| ------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Nouns Town 2024 Ticket   | 0x04Db84527ecC5414B7FaDaeBE03fcADD978Ef5dF | 0x64c1aF051aDB77C4091C073eFdDc86d140131fde |
+| Nouns Town 2024 Redeemer | 0x172E9C1b8521DEa96ea356132b0f12E0e4e12b40 | 0x06d7d31cE120e814fB0042C5ed3dfF949Bc33081 |
 
-| Name                   | Address |
-| ---------------------- | ------- |
-| Nouns Town 2024 Ticket | TODO    |
-
-### Sepolia
-
-| Name                   | Address |
-| ---------------------- | ------- |
-| Nouns Town 2024 Ticket | TODO    |
 
 ## Development
 
