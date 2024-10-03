@@ -8,7 +8,7 @@ import csv from "csv-parser";
 const WALLET_ADDRESS_KEY = "What is your wallet address? - Wallet Address";
 const NOUN_IDS_KEY = "Verify you're a Nouner-NFT-tokenIds";
 const TICKET_IDS_KEY = "Verify you hold the Nouns Town LA Pass-NFT-tokenIds";
-const NAME_KEY = "What is your name?";
+const NAME_KEY = "What is your full name?";
 const EMAIL_KEY = "What is your email?";
 
 // Get all users to issue passes too
@@ -39,6 +39,7 @@ async function parseCsv(csvFilePath: string): Promise<User[]> {
           throw Error("No NFTs found for user");
         }
 
+        // Prioritize noun over ticket
         const nftType = nounsIds[0] == BigInt(0) ? "ticket" : "noun";
 
         const user: User = {

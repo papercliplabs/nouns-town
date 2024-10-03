@@ -12,6 +12,7 @@ export default function ScannerPage() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const scannerRef = useRef<QrScanner | null>(null);
   const [scanStatus, setScanStatus] = useState<ScanStatus>("idle");
+  const [passHolderName, setPassHolderName] = useState<string>("");
 
   // Setup scanner
   useEffect(() => {
@@ -37,6 +38,7 @@ export default function ScannerPage() {
 
   const reset = useCallback(() => {
     setScanStatus("idle");
+    setPassHolderName("");
     scannerRef.current?.stop();
     scannerRef.current?.start();
   }, [setScanStatus]);
@@ -46,8 +48,8 @@ export default function ScannerPage() {
       setScanStatus("loading");
       scannerRef.current?.pause(); // Stop scanner so we don't get more scans until modal is dismissed
       const { success, data } = await ethPassScan(barcode!);
-      console.log("DEBUG SCAN", data);
       setScanStatus(success ? "valid" : "invalid");
+      setPassHolderName(data["message"] ?? "");
     },
     [setScanStatus]
   );
@@ -76,6 +78,7 @@ export default function ScannerPage() {
                 )}
               />
               <h4>{scanStatus}</h4>
+              {scanStatus == "valid" && passHolderName}
             </div>
             <Button onClick={reset} variant="secondary" size="md" className="w-full">
               Scan another pass

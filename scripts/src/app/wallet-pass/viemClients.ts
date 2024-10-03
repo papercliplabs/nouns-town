@@ -1,6 +1,9 @@
-import { createClient, http, fallback, createWalletClient } from "viem";
+import dotenv from "dotenv";
+import { createClient, http, fallback, createWalletClient, Hex } from "viem";
 import { mainnet, base } from "viem/chains";
 import { privateKeyToAccount } from "viem/accounts";
+
+dotenv.config();
 
 export const mainnetPublicClient = createClient({
   chain: mainnet,

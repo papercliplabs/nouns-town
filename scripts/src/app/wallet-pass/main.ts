@@ -15,7 +15,7 @@ async function main() {
   console.log("USERS", users);
 
   // Mark tickets as redeemed (makes them non-transferable)
-  // await redeemTicketNfts(users.filter((user) => user.nftType == "ticket").map((user) => user.nftId));
+  await redeemTicketNfts(users.filter((user) => user.nftType == "ticket").map((user) => user.nftId));
 
   // Create Passes
   const passRedemptions = await ethpassIssuePasses(users);

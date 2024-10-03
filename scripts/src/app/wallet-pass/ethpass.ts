@@ -1,4 +1,7 @@
 import { Pass, User } from "./types";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const MOONPAY_API_KEY = process.env.MOONPAY_API_KEY!;
 
@@ -31,6 +34,9 @@ async function issuePass(user: User): Promise<string> {
         signatureMessage: "TESTING",
       },
       templateId: "e2128581-5d66-4cd0-86a5-090448823888",
+      barcode: {
+        message: user.name,
+      },
       layout: {
         universal: {
           logoText: "Nouns Town LA",
@@ -68,18 +74,3 @@ async function issuePass(user: User): Promise<string> {
 
   return data["distribution"]["claimUrl"];
 }
-
-// async function scanPass(barcode: string) {
-//   const resp = fetch(`https://api.ethpass.xyz/api/v0/scan?data=${barcode}`, {
-//     method: "GET",
-//     headers: {
-//       "X-API-KEY": MOONPAY_API_KEY,
-//       accept: "application/json",
-//       "content-type": "application/json",
-//     },
-//   });
-
-//   const data = await resp.then((r) => r.json());
-
-//   console.log(data);
-// }
