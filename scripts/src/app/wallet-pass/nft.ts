@@ -2,8 +2,8 @@ import { NftType } from "./types";
 import { Address, Client, erc721Abi } from "viem";
 import { multicall, writeContract } from "viem/actions";
 import dotenv from "dotenv";
-import { eventTicketAbi } from "./abis/eventTicketAbi";
-import { eventTicketRedeemerAbi } from "./abis/eventTicketRedeemerAbi";
+import { eventTicketAbi } from "../../abis/eventTicketAbi";
+import { eventTicketRedeemerAbi } from "../../abis/eventTicketRedeemerAbi";
 import { basePublicClient, mainnetPublicClient, redeemerWalletClient } from "./viemClients";
 
 dotenv.config();

@@ -97,7 +97,7 @@ async function filterForValidNounUsers(users: User[]): Promise<User[]> {
       filteredUsers.push(user);
       idUsed[Number(user.nftId)] = true; // Mark used, so there are no double claims
     } else {
-      console.log("Noun User filtered: ", user, owners[i], redeemedNounIds);
+      console.log("Noun User filtered: ", user, owners[i], redeemedNounIds.includes(user.nftId));
     }
   }
 
